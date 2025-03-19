@@ -137,11 +137,11 @@ if (isset($_POST["login"]) && $_SERVER['REQUEST_METHOD'] == "POST") {
     <form class="form-control" action="" method="POST">
         <p class="title">Login</p>
         <div class="input-field">
-            <input required class="input" type="text" name="username" />
+            <input required class="input" type="text" name="username"  value="<?php if(isset($_POST['username'])) echo $_POST['username'] ?>" />
             <label class="label" for="input">Enter Username</label>
         </div>
         <div class="input-field">
-            <input required class="input" type="password" name="password" />
+            <input required class="input" type="password" name="password" value="<?php if(isset($_POST['password'])) echo $_POST['password'] ?>"  />
             <label class="label" for="input">Enter Password</label>
         </div>
         <input type="submit" value="Sign In" name="login" class="submit-btn" />

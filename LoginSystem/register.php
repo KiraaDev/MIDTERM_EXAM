@@ -24,6 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['insert'])) {
             $insert_user_sql = "INSERT INTO user (first_name, last_name, contact_number, username, password) VALUES ('$first_name', '$last_name' , '$contact_number', '$username', '$password')";
 
             $conn->query($insert_user_sql);
+
             header("Location: login.php");
             exit();
         }
@@ -140,23 +141,23 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['insert'])) {
     <form class="form-control" action="" method="POST">
         <p class="title">Register</p>
         <div class="input-field">
-            <input required class="input" type="text" name="fname" />
+            <input required class="input" type="text" name="fname" value="<?php if(isset($_POST['fname'])) echo $_POST['fname'] ?>" />
             <label class="label" for="input">Enter First Name</label>
         </div>
         <div class="input-field">
-            <input required class="input" type="text" name="lname" />
+            <input required class="input" type="text" name="lname" value="<?php if(isset($_POST['lname'])) echo $_POST['lname'] ?>" />
             <label class="label" for="input">Enter Last Name</label>
         </div>
         <div class="input-field">
-            <input required class="input" type="number" name="contact_number" />
+            <input required class="input" type="number" name="contact_number" value="<?php if(isset($_POST['contact_number'])) echo $_POST['contact_number'] ?>" />
             <label class="label" for="input">Enter Contact Number</label>
         </div>
         <div class="input-field">
-            <input required class="input" type="text" name="username" />
+            <input required class="input" type="text" name="username" value="<?php if(isset($_POST['username'])) echo $_POST['username'] ?>" />
             <label class="label" for="input">Enter Username</label>
         </div>
         <div class="input-field">
-            <input required class="input" type="password" name="password" />
+            <input required class="input" type="password" name="password" value="<?php if(isset($_POST['password'])) echo $_POST['password'] ?>" />
             <label class="label" for="input">Enter Password</label>
         </div>
         <input type="submit" value="Sign In" name="insert" class="submit-btn" />

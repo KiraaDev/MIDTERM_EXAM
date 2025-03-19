@@ -191,7 +191,13 @@ if (isset($_POST['update_user']) && $_SERVER['REQUEST_METHOD'] == "POST") {
             <label class="label" for="input">Edit Contact Number</label>
         </div>
         <div class="input-field">
-            <input required class="input" type="text" name="username" value="<?php echo $user['username'] ?>" />
+            <input required class="input" type="text" name="username" value="<?php 
+            if(isset($_POST['username'])){
+                echo $_POST['username'];
+            } else {
+                echo  $user['username'];
+            }
+              ?>" />
             <label class="label" for="input">Edit Username</label>
         </div>
         <div class="input-field">
